@@ -132,7 +132,13 @@ public class Launcher : MonoBehaviourPunCallbacks {
     
   }
 
-  public void QuitGame() {
+  public void QuitGame() 
+  {
     Application.Quit();
   }
+
+    public void ShowName()
+    {
+        Debug.Log(PhotonNetwork.NickName);
+    }
 }
