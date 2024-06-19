@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         {
             PhotonNetwork.Instantiate("VirtualGuyPrefab", new Vector3(51, -3, 0), Quaternion.identity);
         }
-
+        for (int i = 0; i < 3; i++)
         InstantiateFruit();
        /* NewFruit();*///Instancia la primera fruta del juego 
     }
