@@ -14,9 +14,12 @@ public class GameManager : MonoBehaviour
 
     //Array con los posibles puntos de spwan de las frutas
     public GameObject[] fruits;
+    public GameObject[] players;
+    
+
     void Start()
     {
-        
+
 
         //float poxXgeneracion = Random.Range(-rangoGeneracion, rangoGeneracion); examen
         //float posZgeneracion = Random.Range(-rangoGeneracion, rangoGeneracion); examen
@@ -24,21 +27,30 @@ public class GameManager : MonoBehaviour
         //La instanciacion la hace Photon
         //Ojo el nombre lo busca en una carpeta que se llama Resources
         // Y es ahi donde tenemos que meter nuestros prefabs
+        
+        //Hazlo aleatorio huevon de photon
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate("Frog", new Vector3(-3, -3, 0), Quaternion.identity);
-            
-            
+        }
+
+        if (PhotonNetwork.IsMasterClient)//(PhotonNetwork.IsMasterClient) //instanciar segundo jugador
+        {
+            PhotonNetwork.Instantiate("VirtualGuyPrefab", new Vector3(25, -3, 0), Quaternion.identity);
         }
 
         else
         {
             PhotonNetwork.Instantiate("VirtualGuyPrefab", new Vector3(51, -3, 0), Quaternion.identity);
         }
-            
+
+
         NewFruit();//Instancia la primera fruta del juego 
     }
-
+    private void InstantiatePlayerAleatorio()
+    {
+        
+    }
     public void NewFruit()
     {
         //Espera 5 segundos y llama al método que instancia una fruta          
