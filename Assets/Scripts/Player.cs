@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
             //ActualizaTextoPuntuacion();
 
             //Se indica al GameManager que vuelva a instanciar una nueva fruta
-            GameObject.Find("GameManager").GetComponent<GameManager>().NewFruit();
+            GameObject.Find("GameManager").GetComponent<GameManager>().InstantiateFruit();
 
         }
     }

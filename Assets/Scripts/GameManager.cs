@@ -44,20 +44,20 @@ public class GameManager : MonoBehaviour
             PhotonNetwork.Instantiate("VirtualGuyPrefab", new Vector3(51, -3, 0), Quaternion.identity);
         }
 
-
-        NewFruit();//Instancia la primera fruta del juego 
+        InstantiateFruit();
+       /* NewFruit();*///Instancia la primera fruta del juego 
     }
     private void InstantiatePlayerAleatorio()
     {
         
     }
-    public void NewFruit()
-    {
-        //Espera 5 segundos y llama al método que instancia una fruta          
-        Invoke("InstantiateFruit", 5.0f);
-    }
+    //public void NewFruit()
+    //{
+    //    //Espera 5 segundos y llama al método que instancia una fruta          
+    //    Invoke("InstantiateFruit", 5.0f);
+    //}
 
-    private void InstantiateFruit()
+    public void InstantiateFruit()
     {
         if (PhotonNetwork.IsMasterClient) //Hay que ponerlo para que solo instancie la fruta el jugador Master. Si no, cada jugador que hubiera instanciaría una
         {
